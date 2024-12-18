@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rotar2</title>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+    <meta charset="utf-8">
+    <title>Rotar Dígitos Pares</title>
+</head>
+<script>
+    function rotar() {
+        var n = document.getElementById("numero").value;
+        var pares = [];
+        var impares = [];
+        for (var i = 0; i < n.length; i++) {
+            var digito = parseInt(n[i]);
+            if (digito % 2 === 0) {
+                pares.push(digito);
+            } else {
+                impares.push(digito);
+            }
+        }
+        if (pares.length > 1) {
+            var ultimoPar = pares.pop();
+            pares.unshift(ultimoPar);
+        }
+        var resultado = "";
+        var indicePares = 0;
+        for (var i = 0; i < n.length; i++) {
+            var digito = parseInt(n[i]);
+            if (digito % 2 === 0) {
+                resultado += pares[indicePares];
+                indicePares++;
+            } else {
+                resultado += digito;
+            }
+        }
+        document.getElementById("rotars").textContent = resultado;
+    }
+</script>
+<body>
+    <div class="cuerpo">
+    <center>
+        <h1>Rotar Dígitos Pares</h1>
+        <form onsubmit="rotar(); return false;">
+            <label for="numero">Número:</label>
+            <input type="number" id="numero" required>
+            <br>
+            <button type="submit">Rotar</button>
+        </form>
+        <p>Rotado: <span id="rotars"></span></p>
+    </center>
+</body>
+</div>
+</html>

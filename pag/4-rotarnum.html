@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rotar</title>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+<meta charset="utf-8">
+<title></title>
+</head>
+<script>
+	function rotarIzq(n, r) {
+		var ud = 1;
+		var cd = parseInt(Math.log10(n)) + 1;
+		for (var i = 1; i <= r; i++) {
+			ud = parseInt(n / 10**(cd - 1));
+			n = n * 10 + ud;
+			n = n - ud * 10**cd; 
+		}
+			return parseInt(n);
+	}
+
+    function rotarDer(n,r){
+		var pd=1;
+		var cd=parseInt(Math.log10(n))+1;
+		for(var i=1;i<=r;i++){
+			pd=n%10;
+			n=parseInt(n/10);
+			pd=pd*10**(cd-1);
+			n=pd+n;
+		}
+		return parseInt(n);
+	}
+
+    function rotar() {
+		var n= parseInt(document.getElementById("numero").value);
+		var r= parseInt(document.getElementById("rotaciones").value);
+		
+		var rotarizq=rotarIzq(n,r);
+		var rotarder=rotarDer(n,r);
+		
+		document.getElementById("rotar-izq").textContent =rotarizq;
+		document.getElementById("rotar-der").textContent =rotarder;
+    }
+</script>
+<body>
+    <div class="cuerpo">
+	<center>
+		<font size="5px">
+			<h1>Pregunta.4</h1>
+
+		  	<form onsubmit="rotar(); return false;">
+			<label for="number">Número:</label>
+			<input type="number" id="numero">
+			<br/>
+			<label for="rotations">Número de rotaciones:</label>
+			<input type="number" id="rotaciones" min="1" max="10" required>
+			<br/>
+			<button type="submit">Rotar</button>
+		 	</form>
+	  		<h2>Resultados:</h2>
+	  		<p>Rotado a la izquierda: <span id="rotar-izq"></span></p>
+	  		<p>Rotado a la derecha: <span id="rotar-der"></span></p> 
+		</font>
+	</center>
+</div>
+</body>
+</html>

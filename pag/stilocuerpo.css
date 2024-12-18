@@ -1,0 +1,63 @@
+body{
+    color:  #0e0e3d;
+    position: relative;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+div.cuerpo{
+    position: relative;
+    font-weight: bold;
+    font-family: "Tahoma", "Geneva", sans-serif;
+}
+.cuerpo h1{
+    color: #000;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+}
+.cuerpotabla table {
+    position: absolute;
+    font-size: 30px;
+    top: 60px;
+    left: 20%;
+    width: 60%;
+    color: #000;
+    background-color: #ffffff;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+}
+.cuerpotabla td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+}
+.cuerpotabla input {
+    width: 100%;
+    height: 40px;
+    text-align: right;
+    font-size: 18px;
+}
+.cuerpotabla button {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+}
+.cuerpom table {
+    position: absolute;
+    font-size: 30px;
+    top: 150px;
+    left: 1px;
+    color: #ffffff;
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+}
+
+.cuerpom h1 {
+    color: #000;
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+}
+
+.cuerpom td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid rgb(0, 0, 0);
+}

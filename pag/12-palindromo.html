@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+    <meta charset="utf-8">
+    <title>Palindromo</title>
+</head>
+<script>
+    function palindromo(){
+        var c = document.getElementById("cadena").value.toLowerCase();
+        c=c.trim();
+        var r = c.split('').reverse().join('');
+        if (c === r) {
+            resultado.textContent = "Es un palíndromo.";
+        } else {
+            resultado.textContent = "No es un palíndromo.";
+        }
+    }
+        
+    
+</script>
+
+<body>
+	<center>
+		<font size="5px">
+			<h1>Pregunta.12</h1>
+			<label for="cadena">Palabra:</label>
+			<input type="text" id="cadena">
+			<button onclick="palindromo()">Verificar</button>
+			<p id="resultado"></p>
+		</font>
+	</center>    
+</body>
+</html>

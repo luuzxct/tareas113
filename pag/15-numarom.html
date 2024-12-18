@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>A romano</title>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+    <meta charset="utf-8">
+</head>
+<script>
+        function convertirARomano() {
+            var numero = parseInt(document.getElementById("numero").value);
+
+            if (isNaN(numero) || numero < 1 || numero > 3999) {
+                alert("Por favor, ingresa un número válido entre 1 y 3999.");
+                return;
+            }
+
+            var romano = '';
+            var equivalencias = [
+                { valor: 1000, simbolo: 'M' },
+                { valor: 900, simbolo: 'CM' },
+                { valor: 500, simbolo: 'D' },
+                { valor: 400, simbolo: 'CD' },
+                { valor: 100, simbolo: 'C' },
+                { valor: 90, simbolo: 'XC' },
+                { valor: 50, simbolo: 'L' },
+                { valor: 40, simbolo: 'XL' },
+                { valor: 10, simbolo: 'X' },
+                { valor: 9, simbolo: 'IX' },
+                { valor: 5, simbolo: 'V' },
+                { valor: 4, simbolo: 'IV' },
+                { valor: 1, simbolo: 'I' }
+            ];
+
+            for (var i = 0; i < equivalencias.length; i++) {
+                while (numero >= equivalencias[i].valor) {
+                    romano += equivalencias[i].simbolo;
+                    numero -= equivalencias[i].valor;
+                }
+            }
+
+            document.getElementById("resultado").textContent = "Número en romano: " + romano;
+        }
+</script>
+
+<body>
+    <div class="cuerpo">
+    <center>
+		<font size="5px">
+			<h1>Pregunta.15</h1>
+            <label for="numero">Número:</label>
+            <input type="number" id="numero" min="1">
+            <button onclick="convertirARomano()">Convertir</button>
+            <p id="resultado"></p>
+		</font>
+	</center></div>
+</body>
+</html>

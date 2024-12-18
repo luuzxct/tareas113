@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <title>Capicuo</title>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+<meta charset="utf-8">
+<title></title>
+</head>
+<script>
+	function capicuo() {
+		var n = document.getElementById("numero").value;
+		var numeroStr = n.toString();
+		var longitud = numeroStr.length;
+		var esCapicua = true;
+
+		for (var i = 0; i < Math.floor(longitud / 2); i++) {
+			if (numeroStr[i] !== numeroStr[longitud - 1 - i]) {
+				esCapicua = false;
+				break;
+			}
+		}
+		var resultado = document.getElementById("verificar");
+		if (esCapicua) {
+			resultado.textContent = n + " ES CAPICUA";
+		} else {
+			resultado.textContent = n + " NO ES CAPICUA";
+		}
+	}
+</script>
+
+<body>
+	<center>
+		<font size="5px">
+		 	<h1>Pregunta 7</h1>
+		 	<form onsubmit="capicuo(); return false;">
+			<label for="numero">Número:</label>
+			<input type="number" id="numero" min="">
+			<br>
+			<button type="submit">Verificar</button>
+		 	</form>
+		 	<p><span id="verificar"></span></p>
+		</font>
+	</center>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+    <meta charset="utf-8">
+    <title>Matriz</title>
+</head>
+<body>
+    <div class="cuerpom">
+    <center>
+		<font size="5px">
+			<h1>Triángulo de Pascal</h1>
+            <label for="numero">Tamaño del triángulo:</label>
+            <input type="number" id="numero" min="1">
+            <button onclick="mostrarTriangulo()">Mostrar</button>
+            <div id="resultado"></div>
+		</font>
+	</center>
+    <script>
+        function mostrarTriangulo() {
+            var n = parseInt(document.getElementById("numero").value);
+            var triangulo = generarTrianguloPascal(n);
+            mostrarTabla(triangulo);
+        }
+
+        function generarTrianguloPascal(n) {
+            var triangulo = [];
+            for (var i = 0; i < n; i++) {
+                triangulo[i] = [];
+                for (var j = 0; j <= i; j++) {
+                    if (j === 0 || j === i) {
+                        triangulo[i][j] = 1;
+                    } else {
+                        triangulo[i][j] = (triangulo[i - 1][j - 1] || 0) + (triangulo[i - 1][j] || 0);
+                    }
+                }
+                for (var k = i + 1; k < n; k++) {
+                    triangulo[i][k] = 0;
+                }
+            }
+            return triangulo;
+        }
+
+        function mostrarTabla(triangulo) {
+            var resultado = document.getElementById("resultado");
+            resultado.innerHTML = ""; 
+            var tabla = "<table>";
+            for (var i = 0; i < triangulo.length; i++) {
+                tabla += "<tr>";
+                for (var j = 0; j < triangulo[i].length; j++) {
+                    tabla += "<td>" + triangulo[i][j] + "</td>";
+                }
+                tabla += "</tr>";
+            }
+            tabla += "</table>";
+            resultado.innerHTML = tabla;
+        }
+    </script>
+    </div>
+</body>
+</html>

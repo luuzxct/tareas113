@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>Factorial</title>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+<meta charset="utf-8">
+<title></title>
+<script>
+	function factorial(){
+		var n= parseInt(document.getElementById("numero").value);
+		var s=0;
+		var serie=[];
+		for (var i = 1; i <= n; i++) {
+			var p=1;
+			for(var j = 1; j <= i ;j++){
+				p=p*j;
+			}
+        	serie.push(i);
+			s=s+p
+      	}
+  	document.getElementById("resultado").textContent = s+"="+serie.join("! + ")+"!";
+    }
+</script>
+</head>
+<body>
+    <div class="cuerpo">
+        <center>
+            <font size="5px">
+                <h1>Pregunta.3</h1>
+                <label for="numero">Número de términos:</label>
+                <input type="number" id="numero" min="1" value="10">
+                <button onclick="factorial()">Generar</button>
+                <p id="resultado"></p>
+            </font>
+        </center>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+    <title>Esprimo</title>
+    <link rel="stylesheet" href="stilocuerpo.css" type="text/css">
+    <meta charset="utf-8">
+    <title>Rotar Dígitos Pares</title>
+</head>
+<script>
+    function esPrimo(numero) {
+        if (numero <= 1) {
+            return false;
+        }
+        if (numero <= 3) {
+            return true;
+        }
+        if (numero % 2 === 0 || numero % 3 === 0) {
+            return false;
+        }
+        var i = 5;
+        while (i * i <= numero) {
+            if (numero % i === 0 || numero % (i + 2) === 0) {
+                return false;
+            }
+            i += 6;
+        }
+        return true;
+    }
+
+    function primos() {
+        var n = parseInt(document.getElementById("numero").value);
+        var serie = [];
+        var contador = 1;
+
+        while (serie.length < n) {
+            if (esPrimo(contador) || contador===1) {
+                serie.push(contador);
+            }
+            contador++;
+        }
+
+        document.getElementById("resultado").textContent = serie.join(", ");
+    }
+</script>
+<body>
+    <div class="cuerpo">
+	<center>
+		<font size="5px">
+			<h1>Pregunta.9</h1>
+			<label for="numero">Número de términos:</label>
+			<input type="number" id="numero" min="1">
+			<button onclick="primos()">Generar</button>
+			<p id="resultado"></p>
+		</font>
+	</center>\
+</div>
+</body>
+</html>
